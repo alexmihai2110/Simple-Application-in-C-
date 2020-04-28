@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Services.Entities.Medic>
+
+@{
+    ViewData["Title"] = "ViewList";
+}
+
+<h1>ViewList</h1>
+
+<p>
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prenume)
+            </th>
+            
+         
+            <th>
+                @Html.DisplayNameFor(model => model.NumeSpecializare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EtajCabinet)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenume)
+            </td>
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeSpecializare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EtajCabinet)
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>

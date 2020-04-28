@@ -1,0 +1,43 @@
+﻿@model Services.Entities.Consultatii
+
+@{
+    ViewData["Title"] = "DetailsAboutConsultation";
+}
+
+<h1>DetailsAboutConsultation</h1>
+
+<div>
+    <h4>Consultatii</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Pacient:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NumePacient)
+        </dd>
+        <dt class="col-sm-2">
+            Medic:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NumeMedic)
+        </dd>
+        <dt class="col-sm-2">
+            Data:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ora_data)
+        </dd>
+        <dt class="col-sm-2">
+           Pret Total:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.pret)
+        </dd>
+
+    </dl>
+</div>
+<div>
+   
+    <a asp-action="Index">Back to List</a>
+</div>

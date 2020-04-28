@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Services.Entities.Medic>
+
+@{
+    ViewData["Title"] = "Medici";
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prenume)
+            </th>
+
+            <th>
+                Data Nasterii
+            </th>
+
+            <th>
+                Specializare
+            </th>
+            <th>
+                Etaj Cabinet
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Nume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenume)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.DataNasterii)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeSpecializare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EtajCabinet)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id })|
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<p>
+    <a asp-action="Create">Create New</a>|
+    <a asp-action="SeeTheYoungestStaff">Tinerii din fiecare specializare</a>
+</p>

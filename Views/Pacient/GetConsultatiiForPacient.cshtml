@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Services.Entities.Consultatii>
+
+@{
+    ViewData["Title"] = "GetConsultatiiForPacient";
+}
+
+<h1>GetConsultatiiForPacient</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeMedic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ora_data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pret)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeMedic)
+            </td>
+            <td> 
+                @Html.DisplayFor(modelItem => item.Ora_data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pret) 
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>

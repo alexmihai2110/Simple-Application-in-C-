@@ -1,0 +1,55 @@
+﻿@model IndexConsultatiiVm
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="search-bar">
+
+    <form asp-action="Index">
+        <div class="form-group">
+            <label asp-for="Nume" class="control-label"></label>
+            <input asp-for="Nume" class="form-control" />
+            <span asp-validation-for="Nume" class="text-danger"></span>
+        </div>
+        <button type="submit">Search</button>
+
+    </form>
+</div>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nume Pacient</th>
+            <th>Nume Medic</th>
+            <th>Data Programarii</th>
+            <th>Pret</th>
+            <th>Confirmare</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listaConsultatii)
+        {
+            <tr>
+                <td>
+                    @item.NumePacient
+                </td>
+                <td> @item.NumeMedic</td>
+                <td>@item.Ora_data</td>
+                <td>@item.pret</td>
+                <td>@item.Confirmare</td>
+
+                <td>
+                    @Html.ActionLink("Services", "SeeServices", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "DetailsAboutConsultation", new { id = item.Id }) |
+
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Medic" asp-action="TakeAllWithoutCons">Medici care nu au consultatii</a>
+
+

@@ -1,0 +1,52 @@
+﻿
+@model IndexMedicNameVm
+@{
+    ViewData["Title"] = "IndexFilter";
+}
+
+<div class="search-bar">
+
+    <form asp-action="IndexFilter">
+        <div class="form-group">
+            <label asp-for="Nume" class="control-label">Nume Specializare</label>
+            <input asp-for="Nume" class="form-control" />
+            <span asp-validation-for="Nume" class="text-danger"></span>
+        </div>
+        <button type="submit">Search</button>
+
+    </form>
+</div>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                Nume
+            </th>
+            <th>
+                Prenume
+            </th>
+
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.medici)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nume)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prenume)
+                </td>
+
+             
+            </tr>
+        }
+    </tbody>
+</table>
+
